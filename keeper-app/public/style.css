@@ -9,7 +9,7 @@ html{
 }
 
 header{
-    margin: auto -16px;
+    /*margin: auto -16px;*/
     padding: 16px 32px;
     background-color: #fb8500;
     box-shadow: 0 0 10px 0 black;
