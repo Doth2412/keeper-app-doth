@@ -2,9 +2,9 @@ import React from 'react'
 
 function Header(){
     return (
-    <h1 id = "Header">
-        KEEPER
-    </h1>
+    <header>
+        <h1>KEEPER</h1>
+    </header>
     );
 }
 
