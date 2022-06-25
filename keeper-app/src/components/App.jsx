@@ -15,7 +15,7 @@ function App(){
 
     function deleteNote(id){
         setListNote(prevListNote =>{
-            return prevListNote.filter((Item, index) => {
+            return prevListNote.filter((item, index) => {
                 return index !== id
             })
         })
@@ -24,16 +24,17 @@ function App(){
     return(
         <div>
             <Header/>  
-            <Form onSubmit = {addNote}/>
+            <Form onAdd = {addNote}/>
             {listNote.map((Entry, index) => {
                 return (<Note 
-            key = {index}
-            id = {index}    
-            title = {Entry.title}
-            content = {Entry.content}
-            onDelete = {deleteNote}
-            />)
-            }
+                    key = {index}
+                    id = {index}    
+                    title = {Entry.title}
+                    content = {Entry.content}
+                    onDelete = {deleteNote}
+                    />
+                    )
+                }
             )}
             <Footer />
         </div>

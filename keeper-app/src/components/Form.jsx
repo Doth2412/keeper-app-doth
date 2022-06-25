@@ -12,8 +12,8 @@ function Form(props){
             return {
                 ...prevNote,
                 [name]: value
-            };
-        });
+            }
+        })
     }
 
     function submit(event){
@@ -22,18 +22,18 @@ function Form(props){
             title: "",
             content: ""
         });
-        event.preventDefault()
+        event.preventDefault();
     }
 
     return(
         <div>
             <form>
                 <input 
-                    name = "title" 
-                    type = "text" 
-                    placeholder='title' 
+                    name = "title"
                     onChange={handleChange} 
                     value={note.title} 
+                    placeholder="title"
+                    
                 /> 
                 <textarea 
                     name = "content"
@@ -48,4 +48,4 @@ function Form(props){
     )
 }
 
-export default Form
+export default Form;
