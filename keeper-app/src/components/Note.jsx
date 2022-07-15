@@ -13,7 +13,7 @@ function Note(props){
     <div className = "note" style={{backgroundColor: props.completed?"green":null}}>
         {props.completed?<button onClick={handleClick}>DELETE</button>:null}
         <h1>{props.title}</h1>
-        {props.completed?<input type = "checkBox" onClick={handleCheck} checked/>  :<input type = "checkBox" onClick={handleCheck}/>}
+        {props.completed?<input type = "checkBox" onClick={handleCheck} checked/>:<input type = "checkBox" onClick={handleCheck}/>}
         
     </div> 
     )

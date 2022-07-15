@@ -39,15 +39,25 @@ function NoteList(){
         
         function deleteNote(id){
             setListNote(prevListNote =>{
+                console.log(prevListNote)   
                 return prevListNote.filter((item, index) => {
                     return index !== id
                 })
             })
+            setListNote(prevListNote =>{
+                prevListNote.map((item, index) => {
+                    if (index !== id) item.id = index
+                })
+                return [...prevListNote]
+            })
         }
+
+        
 
     return (
         <div>
             <Form onAdd = {addNote}/>
+            <div className="gridline">
             {listNote.map((note, index) => {
             return (
               <Note
@@ -59,7 +69,9 @@ function NoteList(){
                 onDelete={deleteNote}
               />
             )
+            
           })}
+          </div>
         </div>
       )
 }
