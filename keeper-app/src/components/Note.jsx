@@ -5,16 +5,16 @@ function Note(props){
         props.onDelete(props.id)
     }
 
-    function handleCheck(event){
+    function handleCheck(){
         props.onCheck(props.id)
-        event.preventDefault()
     }
 
     return (
-    <div className = "note">
-        <h1>{props.title}</h1>
+    <div className = "note" style={{backgroundColor: props.completed?"green":null}}>
         {props.completed?<button onClick={handleClick}>DELETE</button>:null}
-        <input type="checkBox" onClick={handleCheck}></input>       
+        <h1>{props.title}</h1>
+        {props.completed?<input type = "checkBox" onClick={handleCheck} checked/>  :<input type = "checkBox" onClick={handleCheck}/>}
+        
     </div> 
     )
 }

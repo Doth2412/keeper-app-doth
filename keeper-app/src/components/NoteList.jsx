@@ -6,24 +6,28 @@ import Form from './Form'
 function NoteList(){
     const [listNote, setListNote] = useState([])
 
-        // useEffect(()=>{
-        //     const getTodos = async() =>{
-        //         try{
-        //             const res = await axios.get(
-        //                 'https://jsonplaceholder.typicode.com/todos?_limit=10')
-        //         }
-        //         catch(error){
-        //             console.log(error.message)
-        //         }
-        //     }
+        useEffect(()=>{
+            const getList = async() =>{
+                try{
+                    const res = await axios.get(
+                        'https://jsonplaceholder.typicode.com/todos?_limit=10'
+                        )
+                        setListNote(res.data) 
+                    }
+                catch(error){
+                    console.log(error.message)
+                }
+            }
 
-        //     getTodos()
-        // }, [])
+            getList()
+        }, [])
+
         function checkNote(id){
             setListNote(prevListNote =>{
-                return prevListNote.map((item, index) => {
-                    if (item.index === id) item.completed = !item.completed
+                prevListNote.map((item, index) => {
+                    if (index === id) item.completed = !item.completed
                 })
+                return [...prevListNote]
             })
         } 
         
@@ -44,7 +48,6 @@ function NoteList(){
     return (
         <div>
             <Form onAdd = {addNote}/>
-            {console.log(listNote)}
             {listNote.map((note, index) => {
             return (
               <Note
