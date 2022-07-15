@@ -1,41 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Note from './Note'
 import Form from './Form'
+import NoteList from './NoteList'
+import axios from 'axios'
+import PropTypes from 'prop-types'
 
 function App(){
-    const [listNote, setListNote] = useState([])
-
-    function addNote(newNote){
-        setListNote(prevListNote => {
-            return [...prevListNote, newNote]
-        })
-    }
-
-    function deleteNote(id){
-        setListNote(prevListNote =>{
-            return prevListNote.filter((item, index) => {
-                return index !== id
-            })
-        })
-    }
-
     return(
         <div>
-            <Header/>  
-            <Form onAdd = {addNote}/>
-            {listNote.map((Entry, index) => {
-                return (<Note 
-                    key = {index}
-                    id = {index}    
-                    title = {Entry.title}
-                    content = {Entry.content}
-                    onDelete = {deleteNote}
-                    />
-                    )
-                }
-            )}
+            <Header/>
+            <NoteList/>
             <Footer />
         </div>
     );

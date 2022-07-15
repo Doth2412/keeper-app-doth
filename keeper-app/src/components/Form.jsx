@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import addNote from './NoteList';
 
 function Form(props){
     const [note, setNote] = useState({
-        title: "",
-        content: ""
+        "title": "",
+        "completed": false
     })
 
     function handleChange(event) {
@@ -11,18 +12,19 @@ function Form(props){
         setNote((prevNote) => {
             return {
                 ...prevNote,
-                [name]: value
+                title: value
             }
         })
     }
 
     function submit(event){
         props.onAdd(note)
+        console.log(note)
         setNote({
-            title: "",
-            content: ""
+            "title": "",
+            "completed": false
         });
-        event.preventDefault();
+        event.preventDefault()
     }
 
     return(
@@ -33,16 +35,15 @@ function Form(props){
                     onChange={handleChange} 
                     value={note.title} 
                     placeholder="title"
-                    
                 /> 
-                <textarea 
+                {/* <textarea 
                     name = "content"
                     placeholder= 'Take a note' 
                     rows = "3" 
                     value={note.content}
                     onChange={handleChange}
-                />
-                <button onClick={submit}>ADD</button>
+                /> */}
+                <button onClick={submit} >ADD</button>
             </form>
         </div>
     )
