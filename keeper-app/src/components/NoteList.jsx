@@ -19,13 +19,12 @@ function NoteList(){
 
         //     getTodos()
         // }, [])
-
         function checkNote(id){
-            const newList = listNote.map(note => {
-                if (note.id === id) note.completed = !note.completed
-                return note
+            setListNote(prevListNote =>{
+                return prevListNote.map((item, index) => {
+                    if (item.index === id) item.completed = !item.completed
+                })
             })
-            setListNote(newList)
         } 
         
         function addNote(newNote){
@@ -45,12 +44,14 @@ function NoteList(){
     return (
         <div>
             <Form onAdd = {addNote}/>
-          {listNote.map((note, index) => {
+            {console.log(listNote)}
+            {listNote.map((note, index) => {
             return (
               <Note
                 key={index}
                 id = {index}
                 title={note.title}
+                completed={note.completed}
                 onCheck={checkNote}
                 onDelete={deleteNote}
               />

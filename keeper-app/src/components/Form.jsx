@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import addNote from './NoteList';
 
 function Form(props){
     const [note, setNote] = useState({
@@ -19,7 +18,6 @@ function Form(props){
 
     function submit(event){
         props.onAdd(note)
-        console.log(note)
         setNote({
             "title": "",
             "completed": false
@@ -36,13 +34,6 @@ function Form(props){
                     value={note.title} 
                     placeholder="title"
                 /> 
-                {/* <textarea 
-                    name = "content"
-                    placeholder= 'Take a note' 
-                    rows = "3" 
-                    value={note.content}
-                    onChange={handleChange}
-                /> */}
                 <button onClick={submit} >ADD</button>
             </form>
         </div>

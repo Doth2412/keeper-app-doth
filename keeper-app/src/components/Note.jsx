@@ -2,14 +2,19 @@ import React from "react"
 
 function Note(props){
     function handleClick(){
-        console.log(props.id)
         props.onDelete(props.id)
+    }
+
+    function handleCheck(event){
+        props.onCheck(props.id)
+        event.preventDefault()
     }
 
     return (
     <div className = "note">
         <h1>{props.title}</h1>
-        <button onClick={handleClick}>DELETE</button>
+        {props.completed?<button onClick={handleClick}>DELETE</button>:null}
+        <input type="checkBox" onClick={handleCheck}></input>       
     </div> 
     )
 }
