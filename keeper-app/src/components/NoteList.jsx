@@ -44,12 +44,6 @@ function NoteList(){
                     return index !== id
                 })
             })
-            setListNote(prevListNote =>{
-                prevListNote.map((item, index) => {
-                    if (index !== id) item.id = index
-                })
-                return [...prevListNote]
-            })
         }
 
         
